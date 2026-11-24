@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#071318">
+<title>Signal Below | Dive 01</title>
+<style>
+:root{color-scheme:dark;--text:#eafbf3;--mid:#a6c4bd;--mint:#79efba;--faint:#4d7773;--amber:#ffc981;--shell:#182b32;--stroke:#2e474b;--black:#070f15}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;color:var(--text);background:radial-gradient(ellipse at 70% 20%,#133237 0%,#0b191e 44%,#060e13 82%);min-height:100svh}body:before{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(90deg,transparent 0px,transparent 47px,#7fffd408 48px),repeating-linear-gradient(0deg,transparent 0px,transparent 47px,#7fffd408 48px);mask-image:linear-gradient(#000,transparent 90%)}.wrap{max-width:1040px;margin:auto;padding:30px 26px 36px;position:relative}header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #638f8446;padding-bottom:15px;margin-bottom:25px}code,.mono,button,.eyebrow{font-family:ui-monospace,'Cascadia Code',Consolas,monospace}header small,.eyebrow{letter-spacing:.16em;text-transform:uppercase;font-weight:750;color:var(--mint);font-size:11px}.beacon{display:inline-block;width:8px;height:8px;background:var(--mint);border-radius:50%;margin-right:9px;box-shadow:0 0 12px #79efba88}header span{font-size:10px;color:var(--mid);letter-spacing:.13em}.layout{display:grid;grid-template-columns:minmax(248px,1fr) minmax(340px,448px);gap:clamp(28px,8vw,120px);align-items:start}.brief{padding:24px 0}.brief h1{font-weight:850;letter-spacing:-.081em;line-height:.87;font-size:clamp(65px,9vw,123px);margin:17px 0 23px}.brief h1 span{color:var(--mint)}.lede{font-size:clamp(15px,2vw,19px);line-height:1.55;color:#c6ded5;max-width:29ch}.mission{border:1px solid #395653;background:#071418ba;padding:15px 17px;margin:27px 0 20px;border-radius:5px;color:var(--mid);line-height:1.55;font-size:13px}.mission h2{font-size:11px;margin:0 0 8px}.mission ul{margin:0;padding-left:17px}.mission li+li{margin-top:5px}.brief-footer{display:flex;gap:12px;align-items:center;color:#9bb6b1;font-size:11px;flex-wrap:wrap}.brief-footer kbd{border:1px solid #365553;border-bottom-width:2px;border-radius:4px;padding:3px 5px;color:#d3f1e4}.unit{border-radius:22px;border:1px solid #456168;box-shadow:0 6px 0 #0c1419,0 25px 70px #0009,inset 0 1px #68808950;background:linear-gradient(164deg,#243741,#15272e 64%,#12222b);padding:16px 16px 11px}.screen-head{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.13em;color:#a6c5bc;margin:0 2px 8px}.screen-head span:nth-child(2){color:#7ba69b}.monitor{position:relative;border:4px solid var(--black);border-radius:7px;box-shadow:0 0 0 1px #456168;overflow:hidden;background:#061619}.monitor:after{content:"";inset:0;position:absolute;pointer-events:none;background:repeating-linear-gradient(transparent 0px,transparent 3px,#00000024 4px,#00000024 5px);opacity:.43}canvas{display:block;width:100%;height:auto;aspect-ratio:4/3;image-rendering:pixelated}.hinge{height:24px;display:flex;align-items:center;justify-content:center;gap:5px}.hinge i{width:13px;height:3px;border-radius:3px;background:#07141a}.bottom-controls{position:absolute;left:6%;right:6%;bottom:7%;display:grid;gap:7px}.button-row{display:flex;gap:7px}.bottom-controls .status{font-size:10px;letter-spacing:.045em;color:#c1e2d7;text-transform:uppercase;min-height:12px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.status[data-kind="danger"]{color:#ff9896}.status[data-kind="found"]{color:#7effbd}.status[data-kind="wait"]{color:#ffd691}.btn{border:1px solid #42675e;border-radius:5px;background:#142a2bf8;color:#d8eee7;font-weight:850;padding:8px 10px;min-width:42px;cursor:pointer;touch-action:manipulation;font-size:11px;letter-spacing:.07em;text-transform:uppercase}.btn:hover,.btn:focus-visible{background:#265648;outline:2px solid #81efc6;outline-offset:-2px}.btn:active{transform:translateY(1px)}.pulse{flex:1;text-align:left;color:#041915;background:#83efbc;border-color:#b4ffdc;display:flex;justify-content:space-between;gap:8px;align-items:center}.pulse:hover,.pulse:focus-visible{color:#effff7}.pulse[aria-disabled="true"]{color:#d0dcd6;background:#283a36;border-color:#57736a}.pulse small{font-size:9px}.pulse-target{position:absolute;top:0;left:0;right:0;height:65%;border:0;background:transparent;cursor:crosshair;touch-action:none}.pulse-target:focus-visible{outline:2px solid #81efc6;outline-offset:-4px}.controls{display:flex;align-items:center;justify-content:space-between;margin:13px 2px 1px;gap:10px}.dpad{display:grid;grid-template-columns:repeat(3,43px);grid-template-rows:repeat(2,34px);gap:3px}.dpad .btn{font-size:15px;padding:0;min-width:0;touch-action:none;border-color:#4a666d;background:#102129}.dpad .btn:hover,.dpad .btn:focus-visible{background:#24443d}.dpad .up{grid-column:2}.dpad .left{grid-column:1;grid-row:2}.dpad .down{grid-column:2;grid-row:2}.dpad .right{grid-column:3;grid-row:2}.unit-meta{text-align:right;color:#8eada7;font-size:9px;letter-spacing:.11em;line-height:1.85}.unit-meta strong{color:#c4e2d7;font-size:11px}.unit-meta a{color:inherit}.overlay{position:absolute;inset:0;display:grid;place-items:center;text-align:center;background:#041218e9;z-index:2}.overlay[hidden]{display:none}.overlay h2{margin:4px 0 9px;font-size:clamp(23px,5vw,35px);line-height:1;letter-spacing:-.055em}.overlay p{font-size:12px;color:#b6d4ce;margin:0 0 14px}.overlay .btn{background:var(--mint);color:#062019}.overlay .eyebrow{font-size:9px}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}footer{font-size:9px;letter-spacing:.13em;color:#8baaa5;margin-top:26px}
+@media(max-width:700px){.wrap{max-width:485px;padding:13px 12px 20px}header{padding-bottom:10px;margin-bottom:12px}.layout{display:block}.brief{padding:2px 2px 12px}.brief h1{font-size:clamp(40px,11vw,63px);line-height:.91;margin:7px 0 4px;letter-spacing:-.076em}.brief h1 br{display:none}.brief h1 br:after{content:" "}.brief h1 span{margin-left:.14em}.brief .eyebrow,.mission,.brief-footer{display:none}.lede{font-size:12px;margin:5px 0 0;max-width:none}.unit{padding:10px 12px 9px;border-radius:15px;max-width:min(100%,calc((100svh - 181px) * .67 + 25px));min-width:min(100%,300px);margin:auto}.screen-head{font-size:8px;margin-bottom:6px}.hinge{height:19px}.controls{margin-top:9px}.dpad{grid-template-columns:repeat(3,44px);grid-template-rows:repeat(2,35px)}footer{margin-top:16px;text-align:center}}@media(prefers-reduced-motion:reduce){.btn:active{transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="mono"><small><i class="beacon"></i>Abyssal Recovery</small><span>FIELD BUILD / 01</span></header>
+<main class="layout">
+<section class="brief" aria-labelledby="game-name">
+<div class="eyebrow">01 / The silent chamber</div>
+<h1 id="game-name">Signal<br><span>Below</span></h1>
+<p class="lede">Find the hatch. One sonar pulse gives away its position, and yours.</p>
+<div class="mission">
+<h2 class="eyebrow">Dive protocol</h2>
+<ul><li>Move with the D-pad or arrow keys.</li><li>Tap the sonar scope or press Space to reveal the hatch.</li><li>Find the glowing hatch before the creature finds you. It only moves when you do.</li></ul>
+</div>
+<div class="brief-footer mono"><kbd>SPACE</kbd> Sonar <kbd>R</kbd> Reset</div>
+</section>
+<section class="unit" aria-label="Dual-screen game">
+<div class="screen-head mono"><span>01 &middot; DIVER CAM</span><span id="depth">DEPTH 408 M</span></div>
+<div class="monitor">
+<canvas id="cave" width="256" height="192" role="img" aria-label="Diver camera, showing the cave, diver, and revealed hatch"></canvas>
+<div id="ending" class="overlay" hidden><div><div class="eyebrow" id="end-kicker"></div><h2 id="end-title"></h2><p id="end-text"></p><button class="btn" id="again" type="button">Dive again &nbsp;↵</button></div></div>
+</div>
+<div class="hinge" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+<div class="screen-head mono"><span>02 &middot; TOUCH SONAR</span><span id="sensor">PASSIVE</span></div>
+<div class="monitor">
+<canvas id="radar" width="256" height="192" aria-hidden="true"></canvas>
+<button type="button" class="pulse-target" aria-label="Pulse sonar from scope" title="Tap to ping the sonar"></button>
+<div class="bottom-controls">
+<div class="status mono" id="status" role="status">Tap sonar to locate hatch</div>
+<div class="button-row"><button class="btn pulse" type="button" id="ping"><span>◉ &nbsp;Pulse sonar</span><small id="charge">READY</small></button><button class="btn" type="button" id="reset" aria-label="Restart dive">Reset</button></div>
+</div>
+</div>
+<div class="controls">
+<div class="dpad" aria-label="Directional pad">
+<button type="button" class="btn up" data-dir="0,-1" aria-label="Move up">▲</button><button type="button" class="btn left" data-dir="-1,0" aria-label="Move left">◄</button><button type="button" class="btn down" data-dir="0,1" aria-label="Move down">▼</button><button type="button" class="btn right" data-dir="1,0" aria-label="Move right">►</button>
+</div>
+<div class="unit-meta mono"><strong>DIVE 01</strong><br>HANDHELD PROTOTYPE<br>D-PAD &middot; SONAR &middot; EXTRACT</div>
+</div>
+<p class="sr" id="telemetry"></p>
+</section>
+</main>
+<footer class="mono">SIGNAL BELOW / ORIGINAL GAME PROTOTYPE</footer>
+</div>
+<script>
+'use strict';
+const el=id=>document.getElementById(id);
+const cv=el('cave').getContext('2d'), rd=el('radar').getContext('2d');
+const W=16,H=10,T=16,offY=16;
+const start={x:2,y:7}, hatch={x:14,y:2}, sleeper={x:12,y:7};
+const dirs=[[0,-1],[-1,0],[0,1],[1,0]];
+const wall=(x,y)=>x<=0||x>=15||y<=0||y>=9||(x===5&&y<=6&&y!==4)||(x===10&&y>=3&&y<=8&&y!==6);
+const same=(a,b)=>a.x===b.x&&a.y===b.y;
+let s;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function reset(focus=false){
+  s={p:{...start},e:{...sleeper},found:false,awake:false,phase:0,pulse:0,cool:0,turn:0,result:null,face:1,t0:-10000,sonarFrom:{...start}};
+  el('ending').hidden=true;
+  update();
+  if(focus)el('ping').focus({preventScroll:true});
+}
+function ping(){
+  if(s.result||s.cool)return;
+  if(!s.awake)s.phase=0;
+  s.found=s.awake=true;
+  s.pulse=8;s.cool=3;s.sonarFrom={...s.p};s.t0=performance.now();
+  update();
+}
+function pursue(){
+  const q=[{...s.e,first:null}], visited=new Set([s.e.y*W+s.e.x]);
+  for(let j=0;j<q.length;j++){
+    const n=q[j];
+    if(same(n,s.p)){if(n.first)s.e=n.first;return;}
+    for(const [dx,dy] of dirs){
+      const x=n.x+dx,y=n.y+dy,k=y*W+x;
+      if(!wall(x,y)&&!visited.has(k)){visited.add(k);q.push({x,y,first:n.first||{x,y}});}
+    }
+  }
+}
+function move(dx,dy){
+  if(s.result)return;
+  const x=s.p.x+dx,y=s.p.y+dy;
+  if(wall(x,y))return;
+  if(dx)s.face=dx;
+  s.p={x,y};s.turn++;
+  s.cool=Math.max(0,s.cool-1);s.pulse=Math.max(0,s.pulse-1);
+  if(s.awake&&same(s.p,s.e))s.result='caught';
+  else if(s.found&&same(s.p,hatch))s.result='win';
+  else if(s.awake){
+    s.phase^=1;
+    if(!s.phase)pursue();
+    if(same(s.p,s.e))s.result='caught';
+  }
+  update();
+}
+function rect(c,color,x,y,w,h){c.fillStyle=color;c.fillRect(x,y,w,h);}
+function line(c,color,x,y,X,Y){c.strokeStyle=color;c.beginPath();c.moveTo(x+.5,y+.5);c.lineTo(X+.5,Y+.5);c.stroke();}
+function label(c,t,x,y,color,size=8){c.fillStyle=color;c.font='bold '+size+'px monospace';c.fillText(t,x,y);}
+function wiggle(x,y,k){return ((x*73+y*197+k*57)^(x*y*19+k*11))&255}
+const terrain=document.createElement('canvas');terrain.width=256;terrain.height=192;
+const bg=terrain.getContext('2d');
+function buildTerrain(){
+  rect(bg,'#081c25',0,0,256,192);
+  for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+    const px=x*T,py=y*T+offY, h=wiggle(x,y,0);
+    if(wall(x,y)){
+      rect(bg,['#193238','#1c343c','#1a3740'][h%3],px,py,T,T);
+      line(bg,'#2b4750',px+1,py+4,px+8,py+1);line(bg,'#203d44',px+8,py+2,px+14,py+6);
+      line(bg,'#0e2731',px+1,py+10,px+7,py+14);line(bg,'#284852',px+9,py+11,px+14,py+9);
+      if(!wall(x+1,y))line(bg,'#33575c',px+15,py+3,px+15,py+13);
+      if(!wall(x,y-1))line(bg,'#405f60',px+3,py,px+12,py);
+    }else{
+      rect(bg,['#0a2230','#092430','#0b212d'][h%3],px,py,T,T);
+      for(let k=1;k<5;k++){let v=wiggle(x,y,k);rect(bg,k===2?'#1a3b47':'#132e3b',px+(v%12),py+((v>>4)%13),k===2?3:1,1);}
+      if(h%6===0){line(bg,'#245052',px+3,py+15,px+4,py+8);line(bg,'#275954',px+8,py+15,px+7,py+11);rect(bg,'#25484f',px+2,py+15,8,1);}
+    }
+  }
+  rect(bg,'#0a1c24',0,0,256,16);rect(bg,'#0a1c24',0,176,256,16);
+  line(bg,'#28504f',0,15,255,15);line(bg,'#28504f',0,176,255,176);
+}
+function ring(c,x,y,r,color){c.strokeStyle=color;c.beginPath();c.arc(x,y,r,0,Math.PI*2);c.stroke();}
+function cave(now){
+  cv.drawImage(terrain,0,0);
+  label(cv,'CAM A / CAVERN',7,11,'#99c7c0');
+  const alert=s.awake?'MOTION':'QUIET';label(cv,alert,215-(alert.length-5)*5,11,s.awake?'#ff9d96':'#86b4b2');
+  const px=s.p.x*T,py=s.p.y*T+offY;
+  cv.save();cv.beginPath();cv.rect(0,16,256,160);cv.clip();
+  let g=cv.createRadialGradient(px+8,py+8,14,px+8,py+8,132);g.addColorStop(0,'#07172000');g.addColorStop(1,'#030c1389');
+  cv.fillStyle=g;cv.fillRect(0,16,256,160);
+  if(s.pulse>0&&!reduce&&now-s.t0<850){
+    const f=Math.max(0,(now-s.t0)/850);
+    ring(cv,s.sonarFrom.x*T+8,s.sonarFrom.y*T+24,8+215*f,'rgba(122,243,195,'+(.7*(1-f))+')');
+  }
+  if(s.found){
+    const dx=hatch.x*T,dy=hatch.y*T+offY;
+    rect(cv,'#1b6657',dx,dy,16,16);rect(cv,'#7becc0',dx+1,dy+2,14,13);rect(cv,'#0b3738',dx+3,dy+4,10,9);
+    rect(cv,'#4da99f',dx+4,dy+8,8,1);rect(cv,'#8af2bf',dx+7,dy+5,2,4);rect(cv,'#b7ffdc',dx+7,dy+11,2,1);
+  }
+  if(s.awake){
+    const ex=s.e.x*T,ey=s.e.y*T+offY;
+    rect(cv,'#381727',ex+2,ey+3,11,10);rect(cv,'#9f5362',ex+3,ey+5,9,6);
+    rect(cv,'#d67476',ex+4,ey+4,7,5);rect(cv,'#f9c38b',ex+5,ey+6,2,2);rect(cv,'#f9c38b',ex+9,ey+6,1,2);
+    rect(cv,'#b36971',ex+1,ey+9,3,2);rect(cv,'#b36971',ex+12,ey+8,2,2);
+    rect(cv,'#9f5362',ex+4,ey+12,2,3);rect(cv,'#9f5362',ex+9,ey+12,2,2);
+  }
+  cv.save();cv.translate(px+(s.face<0?16:0),py);cv.scale(s.face,1);
+  rect(cv,'#083b41',1,4,13,11);rect(cv,'#74c6ae',2,5,3,7);rect(cv,'#e1ae70',4,4,9,8);
+  rect(cv,'#ffc27a',5,3,7,2);rect(cv,'#ffe2a3',6,4,6,5);rect(cv,'#83efdc',8,5,5,4);rect(cv,'#357a7d',10,7,3,2);
+  rect(cv,'#b3764f',4,11,8,2);rect(cv,'#bdf4cd',5,13,3,2);rect(cv,'#9ed0af',10,13,3,1);cv.restore();
+  cv.restore();
+  rect(cv,'#ebbd7d',7,183,4,4);label(cv,'DIVER',15,187,'#a6cac2');
+  rect(cv,s.found?'#9bf2c2':'#315251',61,183,4,4);label(cv,s.found?'HATCH':'HATCH UNKNOWN',69,187,s.found?'#a6cac2':'#7a9a97');
+  label(cv,'MOVES '+String(s.turn).padStart(2,'0'),193,187,'#99c7c0');
+}
+function radar(now){
+  rect(rd,'#071f24',0,0,256,192);
+  for(let x=0;x<256;x+=12)line(rd,'#14373a',x,0,x,192);
+  for(let y=0;y<192;y+=12)line(rd,'#14373a',0,y,256,y);
+  const cx=128,cy=66;
+  for(const r of [18,34,50,63])ring(rd,cx,cy,r,r===63?'#38716a':'#2c6358');
+  line(rd,'#39796e',65,66,191,66);line(rd,'#39796e',128,4,128,128);
+  label(rd,'N',126,12,'#6aae9c');label(rd,'090',203,68,'#6aae9c');
+  label(rd,'SA-02',8,16,'#75a79d');label(rd,'SCAN SCOPE',190,16,'#75a79d');
+  label(rd,s.awake?'MOTION / ACTIVE':'LISTENING',8,123,s.awake?'#f49789':'#84bfad');
+  const pb={x:76+s.p.x*7,y:29+s.p.y*8};
+  const mark=(p,color)=>{rect(rd,color,75+p.x*7,28+p.y*8,3,3);};
+  if(s.pulse>0){
+    for(let y=1;y<9;y++)for(let x=1;x<15;x++){if(wall(x,y))rect(rd,'#295b54',74+x*7,27+y*8,5,5);}
+    if(!reduce&&now-s.t0<900){
+      const f=Math.max(0,(now-s.t0)/900);
+      ring(rd,76+s.sonarFrom.x*7,29+s.sonarFrom.y*8,3+89*f,'rgba(120,255,194,'+(.95*(1-f))+')');
+    }
+  }
+  if(s.found)mark(hatch,'#a3fbc7');
+  if(s.pulse>0&&s.awake)mark(s.e,'#ff9795');
+  rect(rd,'#ffc986',pb.x-1,pb.y-1,3,3);
+  rect(rd,'#07191e',0,132,256,60);
+  line(rd,'#36665d',0,132,255,132);
+}
+function update(){
+  const ending=el('ending'), status=el('status');
+  el('charge').textContent=s.cool?'WAIT '+s.cool:'READY';
+  el('ping').setAttribute('aria-disabled',String(!!(s.cool||s.result)));
+  el('sensor').textContent=s.pulse?'ECHO '+s.pulse+'/8':(s.awake?'MOTION':'PASSIVE');
+  el('depth').textContent='DEPTH '+(400+s.p.y*2)+' M';
+  let msg='Tap sonar to locate hatch', kind='';
+  if(s.awake){msg='Hatch marked · creature awake';kind='wait';}
+  if(s.result==='win'){msg='Extraction complete';kind='found';}
+  if(s.result==='caught'){msg='Signal lost';kind='danger';}
+  status.textContent=msg;status.dataset.kind=kind;
+  el('telemetry').textContent='Position '+s.p.x+', '+s.p.y+'. '+s.turn+' moves. '+msg+'.';
+  if(s.result){
+    el('end-kicker').textContent=s.result==='win'?'Mission complete':'Mission failed';
+    el('end-title').textContent=s.result==='win'?'Back to the surface.':'Signal lost.';
+    el('end-text').textContent=s.result==='win'?'You found the hatch in '+s.turn+' moves.':'The creature reached your position.';
+    ending.hidden=false;el('again').focus({preventScroll:true});
+  }
+  cave(performance.now());radar(performance.now());
+}
+const keys={ArrowUp:[0,-1],w:[0,-1],ArrowLeft:[-1,0],a:[-1,0],ArrowDown:[0,1],s:[0,1],ArrowRight:[1,0],d:[1,0]};
+addEventListener('keydown',e=>{
+  if(e.metaKey||e.ctrlKey||e.altKey)return;
+  const key=e.key.length===1?e.key.toLowerCase():e.key;
+  if(keys[key]){e.preventDefault();move(...keys[key]);}
+  else if(key==='r'){e.preventDefault();if(!e.repeat)reset();}
+  else if(key===' '&&!(e.target instanceof HTMLButtonElement)){e.preventDefault();if(!e.repeat)ping();}
+  else if(key==='Enter'&&s.result){e.preventDefault();if(!e.repeat)reset(true);}
+});
+el('ping').addEventListener('click',ping);
+document.querySelector('.pulse-target').addEventListener('click',ping);
+el('reset').addEventListener('click',()=>reset());
+el('again').addEventListener('click',()=>reset(true));
+document.querySelectorAll('[data-dir]').forEach(b=>{
+  const dir=b.dataset.dir.split(',').map(Number);
+  b.addEventListener('click',()=>move(...dir));
+});
+buildTerrain();reset();
+let wasAnimating=false;
+function animation(t){
+  const active=!reduce&&s.pulse>0&&t-s.t0<900;
+  if(active||wasAnimating){cave(t);radar(t);}
+  wasAnimating=active;requestAnimationFrame(animation);
+}
+if(!reduce)requestAnimationFrame(animation);
+</script>
+</body>
+</html>
